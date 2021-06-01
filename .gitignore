@@ -80,3 +80,9 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+.dart_tool/chrome-device/Default/AutofillStrikeDatabase/
+
+.dart_tool/chrome-device/Default/BudgetDatabase/
+
+*.tmp

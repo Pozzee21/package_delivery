@@ -1,21 +1,36 @@
 import 'package:equatable/equatable.dart';
 
 class Paquete extends Equatable{
+  final String id,codigoGuia,bultos,direccion;
+  final bool entregado;
+  final String? hora,dni,vinculo;
 
-  Paquete(this.bultos,this.codigoGuia,this.direccion, this.dni,this.hora,this.vinculo);
-
-  final String codigoGuia,bultos,direccion,hora,dni,vinculo;
+  Paquete(this.id,this.bultos,this.codigoGuia,this.direccion,
+      this.entregado,
+      this.dni,this.hora,this.vinculo);
+  // Paquete copyWith({String? id,String? codigoGuia,String? bultos,String? direccion,bool? entregado,String? hora,String? dni,String? vinculo}){
+  //   return Paquete(
+  //       id ?? this.id,
+  //       bultos?? this.bultos,
+  //       codigoGuia?? this.codigoGuia,
+  //       direccion?? this.direccion,
+  //       entregado?? this.entregado,
+  //       dni??this.dni,
+  //       hora?? this.hora,
+  //       vinculo?? this.vinculo);
+  // }
 
   Paquete.fromJson(Map<String,dynamic>json):
+      id=json['id'],
+      codigoGuia=json['codigoGuia'],
       bultos=json['bultos'],
-      vinculo=json['vinculos'],
+      direccion=json['direccion'],
+      entregado=json['entregado'],
       hora=json['hora'],
       dni=json['dni'],
-      direccion=json['direccion'],
-      codigoGuia=json['codigoGuia'];
+      vinculo=json['vinculo'];
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 
 }

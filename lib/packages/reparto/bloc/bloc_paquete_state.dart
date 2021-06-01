@@ -1,13 +1,14 @@
 part of 'bloc_paquete_bloc.dart';
-class PaqueteState extends Equatable{
-  final Paquete paqueteEntregado;
 
-  PaqueteState([this.paqueteEntregado]);
+class PaqueteState extends Equatable{
+  final Paquete? paqueteActual;
+
+  PaqueteState([this.paqueteActual]);
 
   @override
-  List<Object> get props => [paqueteEntregado];
+  List<Object?> get props => [paqueteActual];
 
-  PaqueteState copyWith({Paquete paqueteEntregado}){
-    return PaqueteState(paqueteEntregado ?? this.paqueteEntregado);
+  PaqueteState copyWith({Paquete? paqueteActual}){
+    return PaqueteState(paqueteActual ?? this.paqueteActual);
   }
 }

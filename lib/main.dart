@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:package_delivery/packages/reparto/bloc/bloc_paquete_bloc.dart';
+import 'package:package_delivery/packages/reparto/view/pantalla_paquete_especifico.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,13 +12,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context)=> PaqueteBloc()),
 
-        primarySwatch: Colors.deepOrange,
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+
+          primarySwatch: Colors.deepOrange,
+        ),
+        home: MyHomePage(title: 'Flutter Demo Home Page'),
+        builder: EasyLoading.init(),
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -88,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed:()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> PaqueteEspecifico(id: "1"))),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
