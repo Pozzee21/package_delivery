@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_delivery/packages/reparto/data/api_calls.dart';
-import 'package:package_delivery/packages/reparto/model/Paquete.dart';
+import 'package:package_delivery/packages/reparto/model/paquete.dart';
 
 part 'bloc_paquete_state.dart';
 

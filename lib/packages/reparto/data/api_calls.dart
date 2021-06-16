@@ -1,5 +1,5 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:package_delivery/packages/reparto/model/Paquete.dart';
+import 'package:package_delivery/packages/reparto/model/paquete.dart';
 
 class Servidor {
 
