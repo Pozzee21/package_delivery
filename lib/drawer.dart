@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_delivery/packages/common/bloc/bloc_navigator_bloc.dart' as BlockNavigator;
 import 'package:package_delivery/packages/common/bloc/bloc_navigator_bloc.dart';
+import 'package:package_delivery/packages/reparto/view/pantalla_hoja_ruta.dart';
 
 class MainDrawer extends StatelessWidget{
 
-bool delivery;
-String appTitle;
-Icon leadingArrow;
+bool? delivery;
+String? appTitle;
+Icon? leadingArrow;
 
 List<String> sections=["Cerrar sesion", "Crear Planilla","Ver planillas", "Hoja de ruta"];
 
@@ -24,15 +25,15 @@ GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     leadingArrow = Icon(Icons.arrow_right_rounded);
-    Widget body;
-    Widget trailingAppBar;
+    Widget? body;
+    Widget? trailingAppBar;
 
     return BlocBuilder<NavigatorBloc,BlockNavigator.NavigatorState>(
         builder: (context,  state ){
           trailingAppBar = null;
           appTitle = "";
           body = null;
-          switch(state.values.last){
+          switch(state.values!.last){
             case 0:
               appTitle = "Cerrar sesion";
               if(state.parametro!=null){
@@ -62,11 +63,7 @@ GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
             case 3:
               appTitle = "Hoja de ruta";
-              if(state.parametro!=null){
-                ///body metodo para ....
-                break;
-              }
-              ///bodyy con construccion vacia ?
+              body=HojaRutaScreen(idRepartidor: "1");
               break;
 
             case 99:
@@ -91,7 +88,7 @@ GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
           return Scaffold(
             key: _scaffoldKey,
             appBar: AppBar(
-              title: Text(appTitle),
+              title: Text(appTitle!),
               actions: [trailingAppBar ?? Container()],
             ),
             body: body,

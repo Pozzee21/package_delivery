@@ -21,7 +21,7 @@ class Paquete extends Equatable{
   // }
 
   Paquete.fromJson(Map<String,dynamic>json):
-      id=json['id'],
+      id=json['id'].toString(),
       codigoGuia=json['codigoGuia'],
       bultos=json['bultos'],
       direccion=json['direccion'],
