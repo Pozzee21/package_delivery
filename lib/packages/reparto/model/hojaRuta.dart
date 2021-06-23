@@ -6,18 +6,21 @@ class HojaRuta extends Equatable{
   final List<Paquete> paquetes;
   final String fecha;
   final String nombre;
+  final String  tipo;
 
-  HojaRuta( this.id, this.paquetes,this.nombre,this.fecha);
+  HojaRuta( this.id, this.paquetes,this.nombre,this.fecha,this.tipo);
 
   HojaRuta.fromJson(Map<String, dynamic> json):
       id= json['id'].toString(),
       fecha= json['fecha'],
       nombre= json['nombre'],
-      paquetes= json['paquetes'];
+      paquetes= json['paquetes'],
+      tipo = json['tipo'];
+
 
 
   @override
-  List<Object?> get props => [id,paquetes,fecha,nombre];
+  List<Object?> get props => [id,paquetes,fecha,nombre,tipo];
 
 
 }
